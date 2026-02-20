@@ -38,6 +38,17 @@ All notable changes to this project are documented in this file.
 - Route recomputation during active drag is more stable with fewer visible
   path drops.
 
+### Implementation Notes (Gridless Internals)
+
+- The gridless A* open set now uses a binary min-heap (`MinHeap`) to reduce
+  queue maintenance overhead on dense scenes.
+- Wall segments are pre-indexed with axis-aligned bounds (`minX/maxX/minY/maxY`)
+  so point/edge collision checks can skip non-overlapping segments earlier.
+- Graph edge construction is built symmetrically in a forward pass, then mirrored
+  to opposite directions to reduce redundant checks.
+- A guarded fallback solver path is retained: if the optimized pass does not
+  recover a route, a legacy `Set`-based open-set search is retried for safety.
+
 ### Distribution
 
 - Public repository bootstrap at:
