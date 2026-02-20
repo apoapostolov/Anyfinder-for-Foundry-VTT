@@ -10,6 +10,8 @@ System-agnostic pathfinding for Foundry VTT v13.
 Anyfinder routes token drag movement across shortest legal paths while
 respecting walls and optional fog-of-war exploration limits.
 
+<video src="toolclips/pathfinding.webm" autoplay loop muted playsinline style="width:100%;max-width:800px;"></video>
+
 ## 13.0.0 Highlights
 
 - Curved-wall routing no longer takes invalid diagonal corner-cuts on irregular
